@@ -1,0 +1,24 @@
+<div class="pagination">
+  <button
+    (click)="onPageChange(currentPage - 1)"
+    [disabled]="currentPage === 1"
+  >
+    Preview
+  </button>
+  <button (click)="onPageChange(1)">1</button>
+  <button (click)="onPageChange(2)">2</button>
+  <button (click)="onPageChange(3)">3</button>
+  <button (click)="onPageChange(4)">4</button>
+  <button (click)="onPageChange(5)">5</button>
+  <button (click)="onPageChange(6)">6</button>
+  <button (click)="onPageChange(7)">7</button>
+  <button (click)="onPageChange(8)">8</button>
+  <button (click)="onPageChange(9)">9</button>
+  <button (click)="onPageChange(10)">10</button>
+  <button
+    (click)="onPageChange(currentPage + 1)"
+    [disabled]="currentPage === 10"
+  >
+    Next
+  </button>
+</div>

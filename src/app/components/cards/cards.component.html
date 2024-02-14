@@ -1,0 +1,11 @@
+<section>
+  <div *ngFor="let movieResponse of movieList">
+    <img
+      [src]="'https://image.tmdb.org/t/p/w500/' + movieResponse.poster_path"
+      [alt]="movieResponse.title"
+    />
+    <p class="title">{{ movieResponse.title }}</p>
+    <p class="text">Release date</p>
+    <p class="date">{{ movieResponse.release_date }}</p>
+  </div>
+</section>

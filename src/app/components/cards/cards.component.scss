@@ -1,0 +1,44 @@
+section {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px 40px 30px;
+    align-content: center;
+    justify-content: center;
+}
+
+div {
+    height: 604px;
+    width: 280px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+img {
+    height: 416px;
+    border-radius: 10px;
+    margin: 0;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    color: aliceblue;
+    font-size: 23px;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.text {
+    color: aliceblue;
+    font-size: 21px;
+    margin: 0px;
+    line-height: 1px;
+}
+
+.date {
+    color: aliceblue;
+    font-size: 18px;
+}

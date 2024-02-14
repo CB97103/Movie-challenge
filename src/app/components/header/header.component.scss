@@ -1,0 +1,21 @@
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+h4 {
+    color: #00cba9;
+    align-items: flex-start;
+    margin-left: 45px;
+}
+
+ul {
+    text-decoration: none;
+}
+
+input {
+    border-radius: 20px;
+    padding: 5px 15px 5px;
+}
