@@ -10,6 +10,7 @@ import { CardsComponent } from 'src/app/components/cards/cards.component';
 })
 export class HomeComponent {
 
+  isHomeView: boolean = true; 
   @ViewChild(CardsComponent)
   cardsComponent!: CardsComponent; //Declara una propiedad llamada cardsComponent
 
@@ -18,7 +19,7 @@ export class HomeComponent {
   genre: number | null = null;
   apiResponse: MovieResponse[] = [];
   moviesResponse: MovieResults[] = [];
-  genresResponse: Genres[] = [];
+
 
 
   constructor(private requestService: RequestService) { }
@@ -43,10 +44,16 @@ export class HomeComponent {
   }
 // Maneja el cambio de ordenamiento, filtrado y carga las películas con el nuevo criterio
   handleOrderChange(selectedOrder: string): void {
-    this.loadMovies(this.currentPage, selectedOrder, this.genre);
+    this.sort_By = (selectedOrder)
+    this.loadMovies(this.currentPage, this.sort_By, this.genre);
   }
   handleGenreChange(selectedGenre: string): void {
    this.genre = parseInt(selectedGenre);
     this.loadMovies(this.currentPage, this.sort_By, this.genre);
+  }
+
+ // Restablece los filtros y actualizar las películas en CardsComponent
+  resetFilters(): void {
+    this.cardsComponent.resetFiltersevent();
   }
 }

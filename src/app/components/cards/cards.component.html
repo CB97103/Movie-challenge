@@ -1,10 +1,16 @@
 <section>
   <div *ngFor="let movieResponse of movieList" (click)="navigateToDetails(movieResponse.id)">
-    <img
+  
+    <img *ngIf="movieResponse.poster_path"
       [src]="'https://image.tmdb.org/t/p/w500/' + movieResponse.poster_path"
       [alt]="movieResponse.title"
     />
+    <img *ngIf="!movieResponse.poster_path" class="noImage"
+      src="../../../assets/media/noimage.jpg"
+      [alt]="movieResponse.title"
+    />
     <p class="title">{{ movieResponse.title }}</p>
+    <!-- <p class="title">{{movieResponse.genre_ids}}</p> -->
     <p class="date">{{ movieResponse.release_date | date:'yyyy' }}</p>
   </div>
 </section>

@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,8 +8,10 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  @Input() isHomeView: boolean = false;
   @Output() genreSelectedevent = new EventEmitter<string>();
   @Output() orderChange = new EventEmitter<string>();
+  @Output() clearFilters: EventEmitter<void> = new EventEmitter<void>();
 
   sort_By: string = "popularity.desc";
   genre: number | null = null
@@ -31,5 +33,9 @@ export class HeaderComponent implements OnInit {
   navigateToHome() {
     this.router.navigate(['']);
     console.log("navigate", this.navigateToHome)
+  }
+
+  resetFilters(): void {
+    this.clearFilters.emit();
   }
 }

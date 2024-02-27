@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { MovieResults } from 'src/app/interface/MovieResponse.interface';
+import { Component, OnInit, Input } from '@angular/core';
+import { MovieResults, Genres } from 'src/app/interface/MovieResponse.interface';
 import { RequestService } from 'src/app/services/request.service';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-cards',
@@ -9,6 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./cards.component.scss']
 })
 export class CardsComponent implements OnInit {
+
+  @Input() genres: Genres[] = [];
 
   movieList: MovieResults[] = [];
   errorMessage = '';
@@ -49,9 +52,30 @@ export class CardsComponent implements OnInit {
     );
   };
 
-  navigateToDetails(id: number) {
+  // getGenreName(genreIds : number[]) {
+  //   return genreIds.map(genreId => {
+  //     const genre = this.genres.find(g => g.id === genreId);
+  //     console.log('generoId error', genre)
+  //     return genre ? genre.name : 'Desconocido';
+  //   });
+  // }
+
+  resetFiltersevent() {
+    const sortBy = "popularity.desc";
+    const genre = null;
+
+    this.requestService.getMoviesGenresSortByPage(1, sortBy, genre).subscribe(
+      (response) => {
+        this.movieList = response.results;
+      },
+      (error) => {
+        console.error('Error al cargar las películas:', error);
+      }
+    );
+  }
+
+   navigateToDetails(id: number) {
     console.log("navigate", this.navigateToDetails)
     this.router.navigate(['details', id]);
   }
-
 }

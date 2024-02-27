@@ -1,8 +1,11 @@
 div {
-    margin: 20px 200px 20px;
+  margin: 90px 260px 20px;
+  width: 976px;
+  height: 460px;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
     gap: 100px;
 
 }
@@ -18,16 +21,17 @@ img {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    margin-top: 15px;
+    justify-content: center;
 }
 
 h2 {
     color: aliceblue;
-    font-size: 40px;
+    font-size: 45px;
+    line-height: 50px;
 }
 
 h3 {
-    color: aliceblue;
+    color: #cbcbcb;
     margin-bottom: 20px;
 
 }
@@ -36,8 +40,9 @@ h6 {
     display: inline;
     color: aliceblue;
     margin: 10px 0px 10px;
-    font-size: 22px;
-
+    font-size: 20px;
+    line-height: 6px;
+    margin-top: 25px;
 }
 
 p {
@@ -46,5 +51,5 @@ p {
 }
 
 .overview {
-    margin-top: 20px;
+    margin-top: 40px;
 }

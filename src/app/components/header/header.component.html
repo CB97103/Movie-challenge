@@ -1,9 +1,10 @@
 <header>
   <nav>
     <h4 (click)="navigateToHome()">FILMEXPLORER</h4>
-    <app-filters
+    <app-filters *ngIf="isHomeView"
       (orderChange)="handleOrderChange($event)"
       (genreSelectedevent)="handleGenreChange($event)"
+      (resetFiltersevent)="clearFilters.emit()"
     ></app-filters>
   </nav>
 </header>

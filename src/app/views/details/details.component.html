@@ -1,17 +1,20 @@
 <app-header></app-header>
-<div  *ngIf="movieResponse">
-    <img
-      [src]="'https://image.tmdb.org/t/p/w500/' + movieResponse.poster_path"
-      [alt]="movieResponse.title"
-    />
-    <section class="descriptionDetails"> 
-    <h2 class="title">{{ movieResponse.title }}</h2> 
-    <h3 class="date">{{ movieResponse.release_date | date: 'yyyy'}}</h3>
-    
-     <h6> Original title: </h6>  <p class="originalTitle">{{ movieResponse.original_title }}</p>
-     <p class="genre_ids"> {{ movieResponse.genre_ids}} </p>
-    <h6>Vote average</h6><p class="date">{{ movieResponse.vote_average }}</p>
-    <h6>Vote count</h6> <p class="date">{{ movieResponse.vote_count }}</p>
+<div *ngIf="movieResponse">
+  <img
+    [src]="'https://image.tmdb.org/t/p/w500/' + movieResponse.poster_path"
+    [alt]="movieResponse.title"
+  />
+  <section class="descriptionDetails">
+    <h2 class="title">{{ movieResponse.title }}</h2>
+    <h3 class="date">{{ movieResponse.release_date | date : "yyyy" }}</h3>
+
+    <h6>Original title</h6>
+    <p class="originalTitle">{{ movieResponse.original_title }}</p>
+    <p class="genre_ids">{{ movieResponse.genre_ids }}</p>
+    <h6>Vote average</h6>
+    <p class="date">{{ movieResponse.vote_average }}</p>
+    <h6>Vote count</h6>
+    <p class="date">{{ movieResponse.vote_count }}</p>
     <p class="overview">{{ movieResponse.overview }}</p>
-    </section>
+  </section>
 </div>
