@@ -1,6 +1,9 @@
 <header>
   <nav>
-    <h4>FILMEXPLORER</h4>
-    <app-filters></app-filters>
+    <h4 (click)="navigateToHome()">FILMEXPLORER</h4>
+    <app-filters
+      (orderChange)="handleOrderChange($event)"
+      (genreSelectedevent)="handleGenreChange($event)"
+    ></app-filters>
   </nav>
 </header>

@@ -11,12 +11,16 @@ export class PaginationComponent {
   @Output() pageChanged: EventEmitter<number> = new EventEmitter();
 
   constructor() {
-    this.currentPage = 1; // Asignar un valor inicial en el constructor
+    this.currentPage = 1; // Asigna un valor inicial en el constructor
   }
 
   onPageChange(page: number): void {
-    console.log("Changing to page", page); 
+    console.log("Changing to page", page);
     this.currentPage = page;
     this.pageChanged.emit(page);
+  }
+
+  isPageHighlighted(pageNumber: number): boolean {
+    return pageNumber === this.currentPage;
   }
 }

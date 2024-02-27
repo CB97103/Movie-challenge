@@ -9,8 +9,14 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'details',
-    component: DetailsComponent
+    path: 'details/:id',
+    component: DetailsComponent,
+    pathMatch: 'full'
+  }, 
+  { // Envia a la vista por defecto
+  path: '**',
+  component:HomeComponent,
+  pathMatch: 'full'
   }
 ];
 

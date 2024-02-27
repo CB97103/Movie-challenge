@@ -1,11 +1,10 @@
 <section>
-  <div *ngFor="let movieResponse of movieList">
+  <div *ngFor="let movieResponse of movieList" (click)="navigateToDetails(movieResponse.id)">
     <img
       [src]="'https://image.tmdb.org/t/p/w500/' + movieResponse.poster_path"
       [alt]="movieResponse.title"
     />
     <p class="title">{{ movieResponse.title }}</p>
-    <p class="text">Release date</p>
-    <p class="date">{{ movieResponse.release_date }}</p>
+    <p class="date">{{ movieResponse.release_date | date:'yyyy' }}</p>
   </div>
 </section>

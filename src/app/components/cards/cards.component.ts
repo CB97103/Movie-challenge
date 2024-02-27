@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieResponse } from 'src/app/interface/MovieResponse.interface';
-import { RequestService } from 'src/app/services/request.service';
 import { MovieResults } from 'src/app/interface/MovieResponse.interface';
+import { RequestService } from 'src/app/services/request.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cards',
@@ -12,32 +12,46 @@ export class CardsComponent implements OnInit {
 
   movieList: MovieResults[] = [];
   errorMessage = '';
+  currentPage: number = 1;
+  currentSortBy: string = '';
+  currentGenre: number | null = null;
 
-  constructor(private requestService: RequestService) { }
+  constructor(private requestService: RequestService, private router: Router) { }
 
   ngOnInit(): void {
     this.getData();
   }
-  getData() {
 
+  getData() {
     this.requestService.getAllMovies().subscribe((response) => {
       this.movieList = response;
-      console.log(response)
+      console.log("getData:", response)
     },
       (error) => {
         this.errorMessage = error
       }
     )
   };
-  // Metodo que obtiene las peliculas de una página especifica
-  getMovies(page: number): void {
-    this.requestService.getMoviesByPage(page).subscribe(
+
+  // Metodo que obtiene las peliculas de una página especifica, ordenamiento y genero
+  getMovies(page: number, sort_By: string, genre: number | null = null): void {
+    console.log("Sorting by:", sort_By);
+    console.log("Genre selected:", genre);
+    this.requestService.getMoviesGenresSortByPage(page, sort_By, genre).subscribe(
       (response) => {
+        console.log("Respuesta del servicio:", response);
         this.movieList = response.results;
       },
       (error) => {
         this.errorMessage = error;
+        console.error('Error al cargar las películas:', error);
       }
     );
+  };
+
+  navigateToDetails(id: number) {
+    console.log("navigate", this.navigateToDetails)
+    this.router.navigate(['details', id]);
   }
+
 }

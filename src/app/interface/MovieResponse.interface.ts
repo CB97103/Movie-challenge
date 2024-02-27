@@ -4,7 +4,6 @@ export interface MovieResponse {
   total_pages: number,
   total_results: number
 }
-
 export interface MovieResults {
   adult: boolean,
   backdrop_path: string,
@@ -21,5 +20,7 @@ export interface MovieResults {
   vote_average: number,
   vote_count: number
 }
-
-
+export interface Genres{
+  id: number;
+  name: string;
+  }

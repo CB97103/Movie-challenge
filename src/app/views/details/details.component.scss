@@ -1,0 +1,50 @@
+div {
+    margin: 20px 200px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 100px;
+
+}
+
+img {
+    width: 450px;
+    height: 550px;
+    display: flex;
+    border-radius: 10px;
+}
+
+.descriptionDetails {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-top: 15px;
+}
+
+h2 {
+    color: aliceblue;
+    font-size: 40px;
+}
+
+h3 {
+    color: aliceblue;
+    margin-bottom: 20px;
+
+}
+
+h6 {
+    display: inline;
+    color: aliceblue;
+    margin: 10px 0px 10px;
+    font-size: 22px;
+
+}
+
+p {
+    font-size: 18px;
+    color: #cbcbcb;
+}
+
+.overview {
+    margin-top: 20px;
+}

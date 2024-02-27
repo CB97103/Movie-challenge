@@ -1,21 +1,21 @@
 <div class="pagination">
-  <button
+  <button [ngClass]="{'preview-button': currentPage === 1}"
     (click)="onPageChange(currentPage - 1)"
     [disabled]="currentPage === 1"
   >
     Preview
   </button>
-  <button (click)="onPageChange(1)">1</button>
-  <button (click)="onPageChange(2)">2</button>
-  <button (click)="onPageChange(3)">3</button>
-  <button (click)="onPageChange(4)">4</button>
-  <button (click)="onPageChange(5)">5</button>
-  <button (click)="onPageChange(6)">6</button>
-  <button (click)="onPageChange(7)">7</button>
-  <button (click)="onPageChange(8)">8</button>
-  <button (click)="onPageChange(9)">9</button>
-  <button (click)="onPageChange(10)">10</button>
-  <button
+  <button [ngClass]="{'selected-page': isPageHighlighted(1)}" (click)="onPageChange(1)">1</button>
+  <button [ngClass]="{'selected-page': isPageHighlighted(2)}" (click)="onPageChange(2)">2</button>
+  <button  [ngClass]="{'selected-page': isPageHighlighted(3)}"(click)="onPageChange(3)">3</button>
+  <button  [ngClass]="{'selected-page': isPageHighlighted(4)}"(click)="onPageChange(4)">4</button>
+  <button [ngClass]="{'selected-page': isPageHighlighted(5)}" (click)="onPageChange(5)">5</button>
+  <button [ngClass]="{'selected-page': isPageHighlighted(6)}"  (click)="onPageChange(6)">6</button>
+  <button [ngClass]="{'selected-page': isPageHighlighted(7)}" (click)="onPageChange(7)">7</button>
+  <button [ngClass]="{'selected-page': isPageHighlighted(8)}" (click)="onPageChange(8)">8</button>
+  <button [ngClass]="{'selected-page': isPageHighlighted(9)}" (click)="onPageChange(9)">9</button>
+  <button [ngClass]="{'selected-page': isPageHighlighted(10)}"(click)="onPageChange(10)">10</button>
+  <button [ngClass]="{'next-button': currentPage === 10}"
     (click)="onPageChange(currentPage + 1)"
     [disabled]="currentPage === 10"
   >

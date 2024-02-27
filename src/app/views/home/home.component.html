@@ -1,8 +1,14 @@
-<app-header> </app-header>
+<app-header
+  (orderChange)="handleOrderChange($event)"
+  (genreSelectedevent)="handleGenreChange($event)"
+>
+</app-header>
 <app-cards></app-cards>
 <app-pagination
   [currentPage]="currentPage"
-  (pageChanged)="onPageChange($event)"
+  (pageChanged)="loadMovies($event, sort_By, genre)"
 >
 </app-pagination>
-<app-footer></app-footer>
+<footer>
+  <p>Developed by: Gineth G</p>
+</footer>

@@ -1,8 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { RequestService } from 'src/app/services/request.service';
-import { MovieResponse, MovieResults } from 'src/app/interface/MovieResponse.interface';
+import { Genres, MovieResponse, MovieResults } from 'src/app/interface/MovieResponse.interface';
 import { CardsComponent } from 'src/app/components/cards/cards.component';
-
 
 @Component({
   selector: 'app-home',
@@ -15,19 +14,39 @@ export class HomeComponent {
   cardsComponent!: CardsComponent; //Declara una propiedad llamada cardsComponent
 
   currentPage: number = 1;
+  sort_By: string = "popularity.desc"; 
+  genre: number | null = null;
+  apiResponse: MovieResponse[] = [];
   moviesResponse: MovieResults[] = [];
+  genresResponse: Genres[] = [];
+
 
   constructor(private requestService: RequestService) { }
 
-  // Metodo que se activa cada vez que cambia la página
-  onPageChange(page: number): void {
+  ngOnInit() {
+    this.loadMovies(this.currentPage, this.sort_By, this.genre);
+  }
+
+  loadMovies(page:number, sort_By: string, genre: number | null = null): void { 
     this.currentPage = page;
-    this.requestService.getMoviesByPage(this.currentPage)
-      .subscribe((data: MovieResponse) => {
-        console.log("subscribe recibe", data);
-        this.moviesResponse = data.results; // Asignamos la respuesta del servicio a la lista de películas
-        console.log("movies", this.moviesResponse);
-        this.cardsComponent.getMovies(this.currentPage); // Solicita al componente CardsComponent que cargue las películas correspondientes a la página actual
-      })
+    this.sort_By = sort_By;
+    this.genre = genre;
+    console.log("Sort_By:", this.sort_By);
+    console.log("load genre:", this.genre);
+    this.requestService.getMoviesGenresSortByPage(this.currentPage, this.sort_By, this.genre)
+      .subscribe((response: MovieResponse) => { 
+        console.log("respuesta:", response)
+         this.moviesResponse = response.results
+         this.cardsComponent.getMovies(this.currentPage, sort_By, genre);
+        console.log("loadMovies recibe", this.moviesResponse);
+            });
+  }
+// Maneja el cambio de ordenamiento, filtrado y carga las películas con el nuevo criterio
+  handleOrderChange(selectedOrder: string): void {
+    this.loadMovies(this.currentPage, selectedOrder, this.genre);
+  }
+  handleGenreChange(selectedGenre: string): void {
+   this.genre = parseInt(selectedGenre);
+    this.loadMovies(this.currentPage, this.sort_By, this.genre);
   }
 }

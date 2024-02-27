@@ -1,20 +1,39 @@
+div {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: 60px 10px 100px; 
+}
 button {
-    font-size: 18px;
+    font-size: 23px;
     color: aliceblue;
     background-color: transparent;
     border: none;
-    padding: 12px 14px 12px;
+    padding: 8px 16px 8px;
     margin: 10px;
 }
 
 button:hover {
+    color: #001F3F;
     background-color: #00cba9;
     border-radius: 5px;
     cursor: pointer;
 }
 
-div {
-    display: flex;
-    align-content: center;
-    justify-content: center;
+.preview-button, .next-button{
+    color: #8a8a8a;
 }
+.preview-button:hover, .next-button:hover{
+    color: #8a8a8a;
+    background-color: transparent;
+    cursor: not-allowed;
+}
+
+.selected-page {
+    font-size: 23px;
+    color: aliceblue;
+    background-color: #00cba9;
+    padding: 8px 16px 8px;
+    margin: 10px;
+    border-radius: 5px;
+  }

@@ -7,38 +7,53 @@ section {
 }
 
 div {
-    height: 604px;
+    height: 592px;
     width: 280px;
     margin: 20px;
     cursor: pointer;
+    overflow: hidden;
+    border-radius: 10px;
 }
 
 img {
     height: 416px;
     border-radius: 10px;
     margin: 0;
+    transition: 0.30s ease;
+}
+
+img:hover {
+    color: #27eeee;
+    height: 416px;
+    border-radius: 10px;
+    margin: 0;
+    transform: scale(1.04);
 }
 
 p {
-    display: flex;
-    justify-content: center;
+    text-align: center;
 }
 
 .title {
     color: aliceblue;
     font-size: 23px;
-    margin-bottom: 25px;
+    margin: 20px 0px 5px;
     font-weight: bold;
 }
 
-.text {
-    color: aliceblue;
-    font-size: 21px;
-    margin: 0px;
-    line-height: 1px;
+.title:hover {
+    color: #67e5e7;
+}
+
+.genreIds {
+    color: #a9b3bc;
+    font-size: 19px;
+    font-family: El Messiri;
 }
 
 .date {
-    color: aliceblue;
+    color: #a9b3bc;
     font-size: 18px;
+    font-family: El Messiri;
+    margin-top: 15px;
 }

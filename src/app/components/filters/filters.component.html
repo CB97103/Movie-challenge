@@ -1,14 +1,35 @@
 <section>
-  <label for="genre"></label>
-  <select id="genre" name="genre">
-    <option disabled selected value="">Genre</option>
-    <option value="Acción">Acción</option>
+  <label for="genre" ></label>
+  <select id="genre" name="genre" (change)="genreSelected($event)" > 
+    <option disabled selected value="default">Genre</option>
+    <option value="28">Action</option>
+    <option value="12">Adventure</option>
+    <option value="16">Animation</option>
+    <option value="35">Comedy</option>
+    <option value="80">Crime</option>
+    <option value="99">Documentary</option>
+    <option value="18">Drama</option>
+    <option value="10751">Family</option>
+    <option value="14">Fantasy</option>
+    <option value="36">History</option>
+    <option value="27">Horror</option>
+    <option value="10402">Music</option>
+    <option value="9648">Mystery</option>
+    <option value="10749">Romance</option>
+    <option value="878">Science Fiction</option>
+    <option value="10770">TV Movie</option>
+    <option value="53">Thriller</option>
+    <option value="10752">War</option>
+    <option value="37">Western</option>
   </select>
 
   <label for="sortBy"></label>
-  <select id="sortBy" name="sortBy">
-    <option disabled selected value="">Sort by</option>
-    <option value="Acción">Acción</option>
+  <select id="sortBy" name="sortBy" (change)="orderSelected($event)">
+    <option disabled selected value="default">Sort by</option>
+    <option value="title.asc">A - Z</option>
+    <option value="title.desc">Z - A</option>
+    <option value="primary_release_date.asc">Release year ascendant</option>
+    <option value="primary_release_date.desc">Release year descendant</option>
   </select>
-  <button (click)="cleanFilters()">Clear</button>
+  <button (click)="resetFilters()">Clear</button>
 </section>
